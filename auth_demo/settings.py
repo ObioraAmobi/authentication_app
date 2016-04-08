@@ -124,6 +124,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 AUTH_USER_MODEL = 'accounts_app.User'
 
 AUTHENTICATION_BACKENDS = ('accounts_app.backends.EmailAuth',)
+
+# Stripe environment variables
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', '<enter your own key here>')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', '<enter your own key here>')
